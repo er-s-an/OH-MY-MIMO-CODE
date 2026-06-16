@@ -1,0 +1,16 @@
+{
+  // Points MiMo-Code at the local Oh My MiMo Code plugin built from this repository.
+  // After cloning, replace /absolute/path/to/oh-my-mimo-code with your clone path.
+  "plugin": [
+    "file:///absolute/path/to/oh-my-mimo-code/oh-my-openagent/dist/index.js"
+  ],
+
+  // Keep local development deterministic.
+  "autoupdate": false,
+  "dream": {
+    "auto": false
+  },
+  "distill": {
+    "auto": false
+  }
+}

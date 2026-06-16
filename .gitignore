@@ -1,0 +1,64 @@
+# Local dependency installs
+node_modules/
+**/node_modules/
+
+# Build outputs
+dist/
+**/dist/
+release/
+ts-dist/
+.turbo/
+*.bun-build
+tsconfig.tsbuildinfo
+
+# Local runtime state
+.omo/
+**/.omo/
+.omx/
+**/.omx/
+.mimocode/
+**/.mimocode/
+.dev-home/
+**/.dev-home/
+.cache/
+**/.cache/
+.local/
+**/.local/
+.github/
+**/.github/
+.codegraph/
+**/.codegraph/
+oh-my-openagent/.agents/background-tasks.json
+oh-my-openagent/.opencode/background-tasks.json
+oh-my-openagent/.agents/skills/work-with-pr-workspace/
+oh-my-openagent/.opencode/skills/work-with-pr-workspace/
+
+# Secrets and machine-local config
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+oauth-success.html
+
+# Logs and temporary artifacts
+*.log
+*.pid
+tmp/
+**/tmp/
+logs/
+**/logs/
+.DS_Store
+Thumbs.db
+
+# Local upstream checkouts used for development/testing only.
+# The public OMM repository should not commit MiMo-Code itself.
+MiMo-Code/
+
+# Source archive snapshots kept only for local recovery.
+# Do not publish or commit these in the open-source repository.
+*.tar.gz
+*.tgz
+*.zip

@@ -1,0 +1,41 @@
+--- a/packages/opencode/src/agent/agent.ts
++++ b/packages/opencode/src/agent/agent.ts
+@@ -75,0 +76,12 @@
++const AGENT_NAME_PREFIX_ALIASES: Record<string, readonly string[]> = {
++  sisyphus: ["yugong"],
++  hephaestus: ["luban"],
++  prometheus: ["fuxi"],
++  atlas: ["dayu"],
++  "sisyphus-junior": ["xiao-yugong"],
++  metis: ["jiutian-xuannu"],
++  momus: ["xiezhi"],
++  athena: ["xiwangmu"],
++  "athena-junior": ["xiwangmu-junior"],
++}
++
+@@ -419,0 +432,16 @@
++        }
++
++        function resolveAgent(agent: string) {
++          const exact = agents[agent]
++          if (exact) return exact
++
++          const normalized = agent.trim().toLowerCase()
++          if (!normalized) return undefined
++          const aliases = new Set([normalized, ...(AGENT_NAME_PREFIX_ALIASES[normalized] ?? [])])
++          return Object.values(agents).find((candidate) => {
++            const name = candidate.name.trim().toLowerCase()
++            if (aliases.has(name)) return true
++            if (aliases.has(name.split(" - ", 1)[0])) return true
++            const legacyPrefix = name.match(/^(.+?)\s+\(/)?.[1]
++            return legacyPrefix !== undefined && aliases.has(legacyPrefix)
++          })
+@@ -423 +451 @@
+-          return agents[agent] as Info
++          return resolveAgent(agent) as Info
+@@ -445 +473 @@
+-            const agent = agents[c.default_agent]
++            const agent = resolveAgent(c.default_agent)
+@@ -449 +477 @@
+-            return c.default_agent
++            return agent.name

@@ -1,0 +1,18 @@
+* text=auto
+
+# Keep release source archives clean even if a maintainer has local recovery files.
+MiMo-Code/ export-ignore
+*.tar.gz export-ignore
+*.tgz export-ignore
+*.zip export-ignore
+
+# Runtime/build state should never be part of generated release archives.
+node_modules/ export-ignore
+dist/ export-ignore
+.omo/ export-ignore
+.omx/ export-ignore
+.mimocode/ export-ignore
+.dev-home/ export-ignore
+.cache/ export-ignore
+**/.github/ export-ignore
+**/.codegraph/ export-ignore

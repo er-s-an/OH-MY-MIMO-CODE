@@ -1,0 +1,14 @@
+{
+  // Default Oh My MiMo Code agent used by this MiMo integration.
+  // Replace the model if your MiMo provider uses a different route.
+  "agents": {
+    "sisyphus": {
+      "model": "mimo/mimo-auto",
+      // Optional fallback chain:
+      // "fallback_models": [
+      //   "openai/gpt-5.5",
+      //   { "model": "google/gemini-3-pro", "variant": "high" }
+      // ]
+    }
+  }
+}
